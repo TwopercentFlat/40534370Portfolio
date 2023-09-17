@@ -1,6 +1,12 @@
 # Setup
 
-This section documents your practical work in week 2.
+This section documents the setup for Software Engineering work including the installation of Git, and Visual Studio, as well as personal decisions in regards to my set up.
+Our group specification mentioned the newest version of Visual Studio (2022) Community Edition - Community Edition is the version available for free so naturally thats the one we use.
+
+I downloaded the installer for Visual Studio (2022) from https://visualstudio.microsoft.com/ and let it start installing the dependencies and 
+
+Since I already had Git but wanted to ensure I was using an up-to-date version with the rest of the group I redownloaded the installer from https://git-scm.com/download/win which automatically uninstalled my prexisting version and installed the newest one. Git has no install options for me to customise so it went as far as that. ![image](https://github.com/TwopercentFlat/40534370Portfolio/assets/124392422/12e6672d-18e4-4d3c-8f20-d1cdfff374fb)
+
 
 The main requirements are to show that:
 
