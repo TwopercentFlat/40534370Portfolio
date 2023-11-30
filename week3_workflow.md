@@ -1,50 +1,33 @@
-# Workflow
+## Workflow
 
-This section documents your practical work in week 3.
+# Choosing a Task and Preparing for Work
 
-The main requirements are to show that:
+To start working on a task we select one from our task board in the "To do" section and move it into the "In Progress" section. We also make sure to assign ourselves to the task so that the team knows who is working on it.
 
-1. You know how to use the workflow tools in GitHub
-2. You have successfully carried out the required operations which are:
-   * Accept a task from the project backlog
-   * Update the task information appropriately
-   * Update the task board appropriately
-   * Complete the development task on a feature branch
-   * Commit your changes with appropriate comments
-   * Check your work against the Definition of Done (DoD)
-   * Make a pull request
+![image](https://github.com/TwopercentFlat/40534370Portfolio/blob/main/images/Workflow/Workflow1.PNG)
+![image](https://github.com/TwopercentFlat/40534370Portfolio/blob/main/images/Workflow/Workflow2.PNG)
 
-## Task workflow
+Within the task it provides the details of what needs to be done for the task setting out most of the requirements you need to meet in order to complete the task following DOD (definition of done). These are usually represented by user stories detailing features a user would need to complete a task within the application.
 
-Here, you should use screenshots and descriptive commentary to show that the required
-have been completed successfully.
+To start, within your IDE you should checkout the most recent developmenmt branch to ensure you are working with current changed. Afterwards from this branch create a new branch (following our naming convention it should be "feature#n" where n is the issue number assigned on git). This is the branch where changes you make wil be commited to and prevent the master and develop branch from being changed with faulty code or bad code smell.
 
-**DO**
+![image](https://github.com/TwopercentFlat/40534370Portfolio/blob/main/images/Workflow/Workflow3.PNG)
 
-* Consider the layout of your content from the point of view of the reader. Many raw
-  screenshots will take up a lot of space. It may be better to adopt a different strategy
-  such as
-  * Using thumbnails with links to full-size images
-  * Combining two or more screenshots into a single image 
-  * Using partial screenshots to highlight only the important information
-  * etc.
-* Provide links to the actual objects (e.g. task, pull request, etc.) in the team project
-  in GitHub
-* Read through your work to make sure that the information comes across clearly
 
-**DON'T**
+# Completion of Work and Creating a Pull Request
 
-* Use humour or informal language
-* Waste space with trivial or self-evident commentary
-* Abbreviate your commentary using (e.g. by using bullet points). Your text should be in
-  the form of grammatically correct sentences.
+Example pull request: (https://github.com/AloiSan/UndacBlue/pull/41)
 
-## Reflection
+Once you have completed the task as defined within the description make sure to rebase your branch onto the latest version of the dev branch as to make sure the code doesn't have problems when combined with the current development branch after other team members have implemented their changes.
 
-Here, you should highlight any difficulties that you faced in completing the task, and
-how you resolved them.
+Once rebased commit your changes and push it with your new feature branch onto the remote repo. And once done created a PR (pull request). A pull request is a request to commit changes made on one branch onto another.
 
-You should also briefly discuss the current process and how it could be refined or
-improved in future iterations. For example, is the DoD adequate or too onerous? Is the
-current procedure for updating the task appropriate? Is the task board configured to
-work in an intuitive way?
+![image](https://github.com/TwopercentFlat/40534370Portfolio/blob/main/images/Workflow/Workflow4.PNG)
+
+This request is reviewed by other team members to ensure the code is up-to-standard and of good quality. Team members will comment on the PR to establish recommended changes and if it meets the requirements set out. Examples of changes would be better comments/names, removal of duplicate code, etc.
+
+![image](https://github.com/TwopercentFlat/40534370Portfolio/blob/main/images/Workflow/Workflow5.PNG)
+
+# Additions Going Forward
+
+To improve upon the given process we could make use of automated commit messages or automatic task movement to mark their stages. This would remove much of the work from picking up a task, describing changes, and changing the task state on the kanban board, improving the workflow.

@@ -1,25 +1,79 @@
-# Code review
+## Code Review
 
-This section documents your practical work from week 4 in which you attempt a series of 
-code review challenges. For your portfolio, do the following:
+# The Code
 
-1. Choose the code review challenge which best demonstrates your skills.
-2. Copy the code into your portfolio using a Markdown
-   [fenced code block](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks).
-3. Provide some descriptive commentary that identifies the problems.
-4. Show your improved version of the code in a second code block.
-5. Explain in one or more paragraphs why your solution is a good one.
+```C#
+class HumanResources
+ {
+    static void Main(string[] args)
+     {
+         Person person = new Person();
+         person = person.GetManager();
+     }
+ }
+ 
+ class Person
+ {
+     public Department Department { get; set; }
+     public Person GetManager()
+     {
+         return Department.GetManager();
+     }
+ }
+ 
+ class Department
+ {
+     private readonly Person _manager;
+     public Department(Person manager)
+     {
+         _manager = manager;
+     }
+     public Person GetManager()
+     {
+         return _manager;
+     }
+ }
+```
 
-**DO**
+# The Problem
 
-* Use grammatically correct sentences and paragraphs for your commentary.
-* Make clear reference to the code in your commentary. GitHub Markdown does not support
-  line numbers and so you need to make sure that the reader knows which line you are
-  referring to from your description.
-* Refer to recognised principles or rules when describing your solution. "I thought it
-  would be better that way" is not sufficient: you need to have specific reasons.
+Within this code there is a code smell. The middle man is a code smell in which a class' only job is to delegate its work to another class. In this case, the class Person's only task is to get the manager from department and return it to the client class HumanResources. This makes means the functionality of HumanResources is reliant on a Person having a manager, which could cause problems if we wanted a Manager who does not yet have staff below him.
 
-**DON'T**
+# The Solution
 
-* Include multiple examples. Make the decision about which example shows your best
-  work and use that one.
+To solve this problem we must either remove the Person class and implement the concept another way, or refactor the methods of the classes so that the client class HumanResources has direct access to the department rather than accessing it through the Person class. This is done by giving HumanResources a department (from the person's department) and using that to get the manager.
+
+![image](https://github.com/TwopercentFlat/40534370Portfolio/blob/main/images/CodeReview/CodeReview1.PNG)
+
+```C#
+class HumanResources
+ {
+    static void Main(string[] args)
+     {
+         Person person = new Person();
+         Department department = person.getDepartment();
+         person = department.GetManager();
+     }
+ }
+ 
+ class Person
+ {
+     public Department Department { get; set; }
+ }
+ 
+ class Department
+ {
+     private readonly Person _manager;
+     public Department(Person manager)
+     {
+         _manager = manager;
+     }
+     public Person GetManager()
+     {
+         return _manager;
+     }
+ }
+```
+# Why This Works
+
+Now we don't make use of a specific person to get the manager meaning we avoid convoluted code. Say for example the code was thousands of lines long and we were forced to jump between multiple classes to access data. When a new person is trying to understand the code they will need to understand the internals of both classes to work with the code. This situation makes the code more prone to error when changes are needed later. Since this fix means a Person is not required to access a Department, if we ever needed to get the manager of a department we dont have the staff for, we can use the department to get the manager, avoiding errors that would otherwise occur.
