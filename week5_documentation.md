@@ -51,6 +51,18 @@ The code above may seem fairly simple but if I were to return to this code after
 
 # Doxygen
 
+Doxygen is a handy tool for gathering and providing documentation for your code that makes it easier for others to take advantage of it and build upon it. It lets you explain the uses of classes and methods, their inputs, returns, what they represent and more. Even allowing you to link to other classes or references.
+
+![image](https://github.com/TwopercentFlat/40534370Portfolio/blob/main/images/Documentation/Documentation10.PNG)
+
+![image](https://github.com/TwopercentFlat/40534370Portfolio/blob/main/images/Documentation/Documentation11.PNG)
+
+As seen above, these are placed onto annotated HTML that groups your code together to make it easier to understand how they work together and displays it inside a simplified and summarised menu.
+The above code is further explained by telling the user what gets returned by the code though it could certainly be better explained by evaluating where the rooms come from or what the typing is.
+
+![image](https://github.com/TwopercentFlat/40534370Portfolio/blob/main/images/Documentation/Documentation11.PNG)
+
+Though another use would be to further explain a parameter, such as in the code above. In this the parameter e is not well named and so the user has no idea what it represents. This could be better named but even if it wasnt doxy comments would be useful to explain where it retrieves the parameter from (in this case from the XAML collection).
 
 
 # Avoiding Comments
